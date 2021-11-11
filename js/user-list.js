@@ -20,32 +20,28 @@ class User {
         this.isReviewer = isReviewer;
         this.isAdmin = isAdmin;
     }
+    toTableRow() {
+        let tr = "<tr>";
+        tr += `<td>${this.id}</td>`;
+        tr += `<td>${this.username}</td>`;
+        tr += `<td>${this.password}</td>`;
+        tr += `<td>${this.firstname}</td>`;
+        tr += `<td>${this.lastname}</td>`;
+        tr += `<td>${this.phone}</td>`;
+        tr += `<td>${this.email}</td>`;
+        tr += `<td>${this.isReviewer}</td>`;
+        tr += `<td>${this.isAdmin}</td>`;
+        tr += "</tr>";
+        return tr;
+    }
 }
 
-/*toTableRow() {
-    let tr = "<tr>";
-    tr += `<td>${this.id}</td>`;
-    tr += `<td>${this.username}</td>`;
-    tr += `<td>${this.password}</td>`;
-    tr += `<td>${this.firstname}</td>`;
-    tr += `<td>${this.lastname}</td>`;
-    tr += `<td>${this.phone}</td>`;
-    tr += `<td>${this.email}</td>`;
-    tr += `<td>${this.isReviewer}</td>`;
-    tr += `<td>${this.isAdmin}</td>`;
-    tr += "</tr>";
-    return tr;
-};*/
 
 let dbusers = [
     {id: 1, username: "cford", firstname: "Charles", lastname: "Ford", phone: null, email: null, isReviewer: true, isAdmin: true},
     {id: 2, username: "bross", firstname: "Bob", lastname: "Ross", phone: null, email: null, isReviewer: true, isAdmin: false},
     {id: 3, username: "asandler", firstname: "Adam",  lastname: "Sandler", phone: null, email: null, isReviewer: false, isAdmin: false}
 ]
-
-const displayBoolean = (aBoolean) => {
-    return aBoolean ? "Yes" : "No";
-}
 
 const loaded = () => {
     var tbody = document.getElementById("tbody");
@@ -58,6 +54,7 @@ const loaded = () => {
         tr +=  `<td>${user.email}</td>`;
         tr +=  `<td>${displayBoolean(user.isReviewer)}</td>`;
         tr +=  `<td>${displayBoolean(user.isAdmin)}</td>`;
+        tr +=  `<td><a href="user-detail.html?id=${user.id}">Detail</a> | <a href="user-edit.html?id=${user.id}">Edit</a></td>`;
         tr += "</tr>";
         tbody.innerHTML += tr;
     }
