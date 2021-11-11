@@ -14,6 +14,8 @@ const remove = () => {
 }
 
 const loaded = () => {
+    var url = getUrlId();
+    
     document.getElementById("xid").value = user.id;
     document.getElementById("xusername").value = user.username;
     document.getElementById("xfirstname").value = user.firstname;
