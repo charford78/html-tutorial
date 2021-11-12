@@ -26,7 +26,7 @@ const display = (product) => {
     $("#xid").val(product.id);
     $("#xpartNbr").val(product.partNbr);
     $("#xname").val(product.name);
-    $("#xprice").val(product.price);
+    $("#xprice").val(product.price.toFixed(2));
     $("#xunit").val(product.unit);
     $("#xvendor").val(product.vendor.name);
 }

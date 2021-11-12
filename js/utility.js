@@ -1,3 +1,5 @@
+let baseurl= "http://localhost:54800";
+
 // http://localhost:5500/user-detail.html?id=1
 const getUrlId = () => {
     let url = window.location.href;
